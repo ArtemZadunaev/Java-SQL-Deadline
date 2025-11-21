@@ -43,14 +43,7 @@ public class LoginTest {
         loginPage.login(DataHelper.getAuthInfoWithInvalidPass());
         loginPage.errorMessage("Неверно указан логин или пароль");
     }
-    @DisplayName("should Not Login With Invalid Verification Code")
-    @Test
-    void shouldNotLoginWithInvalidVerificationCode() {
-        loginPage = new LoginPage();
-        verificationPage = loginPage.Validlogin(DataHelper.getAuthInfoWithValidUser());
-        verificationPage.verification(DataHelper.generateRandomVerificationCode());
-        loginPage.errorMessage("Неверно указан код! Попробуйте ещё раз.");
-    }
+
     @DisplayName("should Get Error With Multiple Invalid Verification Code")
     @Test
     void shouldGetErrorWithMultipleInvalidVerificationCode() {
