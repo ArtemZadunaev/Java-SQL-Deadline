@@ -13,10 +13,15 @@ public class LoginPage {
     SelenideElement actionButton = $("[data-test-id=action-login].button");
     SelenideElement errorMessage = $("[data-test-id=error-notification]");
 
+    public LoginPage() {
+        verifyPage();
+    }
+
     public VerificationPage Validlogin(DataHelper.AuthInfo authInfo) {
         login(authInfo);
         return new VerificationPage();
     }
+
 
     public void login(DataHelper.AuthInfo authInfo) {
         loginField.setValue(authInfo.getLogin());

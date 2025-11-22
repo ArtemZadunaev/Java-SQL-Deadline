@@ -10,7 +10,7 @@ public class VerificationPage {
 
     SelenideElement codeField = $("[data-test-id=code] input");
     SelenideElement actionButton = $("[data-test-id = action-verify]");
-    SelenideElement errorNotification =$("[data-test-id = error-notification]");
+    SelenideElement errorNotification = $("[data-test-id = error-notification]");
 
     public VerificationPage() {
         codeField.shouldBe(Condition.visible);
@@ -21,11 +21,13 @@ public class VerificationPage {
         actionButton.click();
 
     }
+
     public DashboardPage validVerification(DataHelper.VerificationCode code) {
         verification(code);
         return new DashboardPage();
     }
-    public void errorVerificationCode(String expText){
+
+    public void errorVerificationCode(String expText) {
         errorNotification.shouldHave(Condition.text(expText));
     }
 }
